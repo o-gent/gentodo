@@ -1,0 +1,18 @@
+.todo-list{
+    background-color: white;
+    padding: 2em;
+}
+
+.todo-item{
+    width: 50%;
+    margin: auto;
+    background-color: teal;
+    border-radius: 1em;
+}
+
+.new-todo-item{
+    width: 40%;
+    background-color: thistle;
+    margin: auto;
+    border-radius: 1em;
+}
