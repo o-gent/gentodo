@@ -3,6 +3,7 @@ import React from "react"
 
 import './Todo.css'
 
+const APIURL = "http://localhost:8000/api/"
 
 class Todo extends React.Component {
     constructor() {
@@ -21,7 +22,7 @@ class Todo extends React.Component {
         (async () => {
             // get todos list
             try{
-                const response = await fetch("http://localhost:8000/api/todo/listall")
+                const response = await fetch(`${APIURL}todo/listall`)
                 const json = await response.json()
                 this.setState({data: json})
             }
@@ -34,7 +35,7 @@ class Todo extends React.Component {
     toggleTodo(_id, done) {
         (async () => {
             // toggle a todo to done
-            const response = await fetch(`http://localhost:8000/api/todo/toggle?_id=${_id}&done=${done}`)
+            const response = await fetch(`${APIURL}todo/toggle?_id=${_id}&done=${done}`)
             const json = await response.json()
             console.log(json)
             this.getPosts()
@@ -44,7 +45,7 @@ class Todo extends React.Component {
     newPost(text) {
         (async () => {
             // submit a new post
-            const response = await fetch(`http://localhost:8000/api/todo/new?text=${text}`)
+            const response = await fetch(`${APIURL}todo/new?text=${text}`)
             const json = await response.json()
             console.log(json)
             this.getPosts()
@@ -54,7 +55,7 @@ class Todo extends React.Component {
     removePost(_id) {
         (async () => {
             // remove a post
-            const response = await fetch(`http://localhost:8000/api/todo/remove?_id=${_id}`)
+            const response = await fetch(`${APIURL}todo/remove?_id=${_id}`)
             const json = await response.json()
             console.log(json)
             this.getPosts()
